@@ -1,0 +1,23 @@
+FARMSEC FRONTEND - START HERE
+
+1. Install Node.js 20.9 or later.
+2. Extract this ZIP file.
+3. Open the extracted folder.
+4. On Windows, double-click RUN_FARMSEC.bat.
+
+Or open a terminal in the folder and run:
+
+npm install
+npm run dev
+
+Then open http://localhost:3000
+
+DEMO FARMER LOGIN
+Email: farmer@farmsec.demo
+Password: farmer123
+
+DEMO ADMIN LOGIN
+Email: admin@farmsec.demo
+Password: admin123
+
+This is a frontend-only progress evaluation prototype. See README.md for limitations and the complete route list.

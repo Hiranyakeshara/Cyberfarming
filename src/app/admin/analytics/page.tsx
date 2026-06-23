@@ -1,0 +1,22 @@
+import { AppShell } from "@/components/AppShell";
+import { Badge, PageHeader } from "@/components/Ui";
+import { BarChart3, CheckCircle2, Download, MessageSquareWarning, MousePointerClick, TrendingUp, Users } from "lucide-react";
+
+export default function AnalyticsPage() {
+  return (
+    <AppShell role="admin">
+      <PageHeader eyebrow="Testing and evaluation" title="Evaluation analytics" description="Dummy quantitative and qualitative indicators prepared to demonstrate how the completed platform could support the thesis evaluation chapter." actions={<button className="button button-primary button-sm"><Download size={15} /> Export report</button>} />
+      <div className="grid4" style={{ marginBottom: 18 }}>
+        <article className="card statCard"><div className="statTop"><span className="statIcon"><Users size={20} /></span><Badge tone="blue">Pilot group</Badge></div><strong>48</strong><span>Evaluation participants</span></article>
+        <article className="card statCard"><div className="statTop"><span className="statIcon"><TrendingUp size={20} /></span><span className="statTrend">+36 points</span></div><strong>78%</strong><span>Average post-test score</span></article>
+        <article className="card statCard"><div className="statTop"><span className="statIcon"><MessageSquareWarning size={20} /></span><Badge>Improved</Badge></div><strong>62%</strong><span>Simulation report rate</span></article>
+        <article className="card statCard"><div className="statTop"><span className="statIcon"><MousePointerClick size={20} /></span><Badge tone="amber">Down 21%</Badge></div><strong>18%</strong><span>Simulation click rate</span></article>
+      </div>
+      <div className="grid2" style={{ marginBottom: 18 }}>
+        <article className="card cardPad"><div style={{ display: "flex", justifyContent: "space-between", gap: 15 }}><div><h2 style={{ fontSize: 18, marginBottom: 5 }}>Awareness score improvement</h2><p style={{ fontSize: 12 }}>Average pre-test and post-test values by threat topic.</p></div><BarChart3 size={22} style={{ color: "var(--green)" }} /></div><div className="chartBox">{[["Subsidy", 82], ["Payments", 74], ["Supplier", 68], ["Marketplace", 63], ["Credentials", 79], ["Devices", 58]].map(([label, value]) => <div className="chartBar" style={{ "--height": `${value}%` } as React.CSSProperties} key={label}><span>{label}</span></div>)}</div></article>
+        <article className="card cardPad"><h2 style={{ fontSize: 18, marginBottom: 5 }}>Usability and relevance</h2><p style={{ fontSize: 12 }}>Dummy mean ratings on a five-point scale.</p><div className="progressRows" style={{ marginTop: 24 }}>{[["Ease of navigation", 90], ["Clarity of language", 94], ["Farming relevance", 92], ["Confidence after training", 84], ["Simulation usefulness", 88]].map(([label, value]) => <div className="progressRow" key={label}><strong>{label}</strong><div className="progressTrack"><span style={{ width: `${value}%` }} /></div><span>{Number(value) / 20}</span></div>)}</div></article>
+      </div>
+      <article className="card cardPad"><div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 15 }}><div><h2 style={{ fontSize: 18, marginBottom: 5 }}>Simulation resilience trend</h2><p style={{ fontSize: 12 }}>Illustrative improvement across four controlled campaigns.</p></div><div className="legend"><span><i /> Safe report rate</span><span className="amber"><i /> Click rate</span></div></div><div className="lineChart"><div className="lineGrid" /><svg className="lineSvg" viewBox="0 0 800 240" preserveAspectRatio="none" aria-label="Simulation trend chart"><polyline points="30,190 270,145 520,95 770,48" fill="none" stroke="#4ade80" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/><polyline points="30,62 270,102 520,142 770,178" fill="none" stroke="#fbbf24" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" opacity=".9"/>{[[30,190],[270,145],[520,95],[770,48]].map(([cx,cy]) => <circle key={`${cx}a`} cx={cx} cy={cy} r="6" fill="#4ade80" />)}{[[30,62],[270,102],[520,142],[770,178]].map(([cx,cy]) => <circle key={`${cx}b`} cx={cx} cy={cy} r="5" fill="#fbbf24" />)}</svg></div><div className="card successBanner" style={{ marginTop: 18 }}><CheckCircle2 size={20} /><div><h3>Interpretation</h3><p>The dummy trend suggests that reporting increased while unsafe clicking decreased after repeated scenario-based training.</p></div></div></article>
+    </AppShell>
+  );
+}
